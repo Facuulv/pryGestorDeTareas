@@ -60,5 +60,29 @@ namespace pryGestorDeTareas
             ObjPrincipal.ListarTareas(dgvHaciendo, "Haciendo");
             ObjPrincipal.ListarTareas(dgvHecha, "Hecha");
         }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarTareas agregarTareas = new frmAgregarTareas();
+            agregarTareas.ShowDialog();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarTareas modificarTareas = new frmModificarTareas();
+            modificarTareas.ShowDialog();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmUsuarios usuarios = new frmUsuarios();
+            usuarios.ShowDialog();
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminarTareas eliminarTareas = new frmEliminarTareas();
+            eliminarTareas.ShowDialog();
+        }
     }
 }

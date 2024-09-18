@@ -47,11 +47,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexionBD.cs" />
+    <Compile Include="frmAgregarTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarTareas.Designer.cs">
+      <DependentUpon>frmAgregarTareas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBienvenida.Designer.cs">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEliminarTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarTareas.Designer.cs">
+      <DependentUpon>frmEliminarTareas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarTareas.Designer.cs">
+      <DependentUpon>frmModificarTareas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVentanaPrincipal.cs">
       <SubType>Form</SubType>
@@ -61,8 +85,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAgregarTareas.resx">
+      <DependentUpon>frmAgregarTareas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBienvenida.resx">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarTareas.resx">
+      <DependentUpon>frmEliminarTareas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarTareas.resx">
+      <DependentUpon>frmModificarTareas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentanaPrincipal.resx">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
@@ -143,6 +179,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\person_search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_24dp_5F6368_FILL0_wght400_GRAD0_opsz241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_note_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_document_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-usuario-80.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
