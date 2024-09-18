@@ -34,6 +34,7 @@ namespace pryGestorDeTareas
                 MessageBox.Show("Usuario validado correctamente");
                 frmVentanaPrincipal principal = new frmVentanaPrincipal();
                 principal.ShowDialog();
+                this.Hide();
             }
             else
             {
