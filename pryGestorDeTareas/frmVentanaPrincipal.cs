@@ -21,6 +21,8 @@ namespace pryGestorDeTareas
         {
             string usuario = clsConexionBD.Sesion.UsuarioActual;
             tslUsuario.Text = usuario;
+
+            //AjustarCol();
         }
 
         private void frmVentanaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,6 +54,7 @@ namespace pryGestorDeTareas
             ObjPrincipal.ListarTareasUsuario(dgvHacer, "Hacer");
             ObjPrincipal.ListarTareasUsuario(dgvHaciendo, "Haciendo");
             ObjPrincipal.ListarTareasUsuario(dgvHecha, "Hecha");
+            AjustarCol();
         }
 
         private void optTodas_CheckedChanged(object sender, EventArgs e)
@@ -59,6 +62,7 @@ namespace pryGestorDeTareas
             ObjPrincipal.ListarTareas(dgvHacer, "Hacer");
             ObjPrincipal.ListarTareas(dgvHaciendo, "Haciendo");
             ObjPrincipal.ListarTareas(dgvHecha, "Hecha");
+            AjustarCol();
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +87,38 @@ namespace pryGestorDeTareas
         {
             frmEliminarTareas eliminarTareas = new frmEliminarTareas();
             eliminarTareas.ShowDialog();
+        }
+        public void AjustarCol()
+        {
+            dgvHacer.Columns[0].HeaderText = "ID";
+            dgvHacer.Columns["id_Tarea"].Width = 40;
+            dgvHacer.Columns["Titulo"].Width = 120;
+            dgvHacer.Columns["Descripcion"].Width = 220;
+            dgvHacer.Columns["Prioridad"].Width = 70;
+            dgvHacer.Columns["Fecha_Vencimiento"].Width = 80;
+            dgvHacer.Columns["Estado"].Width = 80;
+            dgvHacer.Columns["Categoria"].Width = 70;
+            dgvHacer.Columns["Usuario"].Width = 60;
+
+            dgvHaciendo.Columns[0].HeaderText = "ID";
+            dgvHaciendo.Columns["id_Tarea"].Width = 40;
+            dgvHaciendo.Columns["Titulo"].Width = 120;
+            dgvHaciendo.Columns["Descripcion"].Width = 220;
+            dgvHaciendo.Columns["Prioridad"].Width = 70;
+            dgvHaciendo.Columns["Fecha_Vencimiento"].Width = 80;
+            dgvHaciendo.Columns["Estado"].Width = 80;
+            dgvHaciendo.Columns["Categoria"].Width = 70;
+            dgvHaciendo.Columns["Usuario"].Width = 60;
+
+            dgvHecha.Columns[0].HeaderText = "ID";
+            dgvHecha.Columns["id_Tarea"].Width = 40;
+            dgvHecha.Columns["Titulo"].Width = 120;
+            dgvHecha.Columns["Descripcion"].Width = 220;
+            dgvHecha.Columns["Prioridad"].Width = 70;
+            dgvHecha.Columns["Fecha_Vencimiento"].Width = 80;
+            dgvHecha.Columns["Estado"].Width = 80;
+            dgvHecha.Columns["Categoria"].Width = 70;
+            dgvHecha.Columns["Usuario"].Width = 60;
         }
     }
 }
