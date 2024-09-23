@@ -138,5 +138,146 @@ namespace pryGestorDeTareas
             }
             return idUsuario;
         }
+        
+        public void AgregarTarea(string titulo, string descripcion, int prioridad, DateTime fechaVen, string estado, int cate, int usuario)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "INSERT INTO Tareas (Titulo, Descripcion, Prioridad, Fecha_Vencimiento, Estado, Categoria, Usuario) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+                comando.Parameters.AddWithValue("@Titulo", titulo);
+                comando.Parameters.AddWithValue("@Descripcion", descripcion);
+                comando.Parameters.AddWithValue("@Prioridad", prioridad);
+                comando.Parameters.AddWithValue("@Fecha_Vencimiento", fechaVen);
+                comando.Parameters.AddWithValue("@Estado", estado);
+                comando.Parameters.AddWithValue("@Categoria", cate);
+                comando.Parameters.AddWithValue("@Usuario", usuario);
+
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se ha agregado la tarea", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void CargarUsuarios(ComboBox cmbUsuarios)
+        {
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    using (OleDbCommand comando = new OleDbCommand())
+                    {
+                        comando.Connection = conexion;
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = "SELECT id_Usuario, Nombre FROM Usuarios";
+                        conexion.Open();
+
+                        using (OleDbDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            cmbUsuarios.DataSource = dt;
+                            cmbUsuarios.DisplayMember = "Nombre";
+                            cmbUsuarios.ValueMember = "id_Usuario";
+                            cmbUsuarios.SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void CargarPrioridades(ComboBox cmbPrioridades)
+        {
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    using (OleDbCommand comando = new OleDbCommand())
+                    {
+                        comando.Connection = conexion;
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = "SELECT id_Prioridad, Prioridad FROM Prioridades";
+                        conexion.Open();
+
+                        using (OleDbDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            cmbPrioridades.DataSource = dt;
+                            cmbPrioridades.DisplayMember = "Prioridad";
+                            cmbPrioridades.ValueMember = "id_Prioridad";
+                            cmbPrioridades.SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void CargarCategorias(ComboBox cmbCategorias)
+        {
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    using (OleDbCommand comando = new OleDbCommand())
+                    {
+                        comando.Connection = conexion;
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = "SELECT id_Categoria, Categoria FROM Categorias";
+                        conexion.Open();
+
+                        using (OleDbDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            cmbCategorias.DataSource = dt;
+                            cmbCategorias.DisplayMember = "Categoria";
+                            cmbCategorias.ValueMember = "id_Categoria";
+                            cmbCategorias.SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void ConfirmarTarea(int idTarea, string estado)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "UPDATE Tareas SET Estado = @Estado WHERE id_Tarea = @id_Tarea";
+
+                comando.Parameters.AddWithValue("@Estado", estado);
+                comando.Parameters.AddWithValue("@id_Tarea", idTarea);
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cambiar el estado de la tarea: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

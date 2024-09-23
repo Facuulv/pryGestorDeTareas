@@ -120,5 +120,47 @@ namespace pryGestorDeTareas
             dgvHecha.Columns["Categoria"].Width = 70;
             dgvHecha.Columns["Usuario"].Width = 60;
         }
+
+        private void tsbConfirmar_Click(object sender, EventArgs e)
+        {
+            DataGridView dgvAux = null;
+            if (tbControl.SelectedTab == tpHacer)
+            {
+                dgvAux = dgvHacer;
+            }
+            if (tbControl.SelectedTab == tpHaciendo)
+            {
+                dgvAux = dgvHaciendo;
+            }
+
+            if (dgvAux.SelectedRows.Count > 0)
+            {
+                int idTarea = Convert.ToInt32(dgvAux.SelectedRows[0].Cells["id_Tarea"].Value);
+
+                DialogResult resultado = MessageBox.Show(
+                        "La tarea seleccionada se va a marcar como Hecha. ¿Estas seguro?",
+                        "Completar Tarea",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ObjPrincipal.ConfirmarTarea(idTarea, "Hecha");
+                    MessageBox.Show("La tarea seleccionada se ha completado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ObjPrincipal.ListarTareasUsuario(dgvHacer, "Hacer");
+                    ObjPrincipal.ListarTareasUsuario(dgvHaciendo, "Haciendo");
+                    ObjPrincipal.ListarTareasUsuario(dgvHecha, "Hecha");
+                }
+                else
+                {
+                    return;
+                }               
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una tarea para confirmar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

@@ -86,9 +86,9 @@
             this.btnMostrarOcultar.BackColor = System.Drawing.SystemColors.Control;
             this.btnMostrarOcultar.BackgroundImage = global::pryGestorDeTareas.Properties.Resources.visibility_lock_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
             this.btnMostrarOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMostrarOcultar.Location = new System.Drawing.Point(407, 128);
+            this.btnMostrarOcultar.Location = new System.Drawing.Point(407, 86);
             this.btnMostrarOcultar.Name = "btnMostrarOcultar";
-            this.btnMostrarOcultar.Size = new System.Drawing.Size(33, 34);
+            this.btnMostrarOcultar.Size = new System.Drawing.Size(26, 25);
             this.btnMostrarOcultar.TabIndex = 5;
             this.btnMostrarOcultar.UseVisualStyleBackColor = false;
             this.btnMostrarOcultar.Click += new System.EventHandler(this.btnMostrarOcultar_Click);
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 319);
+            this.ClientSize = new System.Drawing.Size(451, 172);
             this.Controls.Add(this.btnMostrarOcultar);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtContraseña);

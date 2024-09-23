@@ -30,19 +30,19 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaVenc = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPrioridades = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -62,19 +62,19 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cmbCategorias);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnAgregar);
+            this.groupBox1.Controls.Add(this.cmbUsuarios);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtFechaVenc);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbPrioridades);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.rtxtDescripcion);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtTitulo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(15, 39);
@@ -84,14 +84,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DE LA TAREA";
             // 
-            // comboBox3
+            // cmbCategorias
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(91, 183);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(202, 23);
-            this.comboBox3.TabIndex = 13;
+            this.cmbCategorias.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(91, 183);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(202, 23);
+            this.cmbCategorias.TabIndex = 13;
             // 
             // label7
             // 
@@ -103,35 +103,36 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Categoría:";
             // 
-            // button2
+            // btnLimpiar
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(197, 292);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 35);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "LIMPIAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(197, 292);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(96, 35);
+            this.btnLimpiar.TabIndex = 11;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(91, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 35);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "AGREGAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(91, 292);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(96, 35);
+            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // comboBox2
+            // cmbUsuarios
             // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(91, 31);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(202, 23);
-            this.comboBox2.TabIndex = 9;
+            this.cmbUsuarios.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbUsuarios.FormattingEnabled = true;
+            this.cmbUsuarios.Location = new System.Drawing.Point(91, 31);
+            this.cmbUsuarios.Name = "cmbUsuarios";
+            this.cmbUsuarios.Size = new System.Drawing.Size(202, 23);
+            this.cmbUsuarios.TabIndex = 9;
             // 
             // label6
             // 
@@ -143,13 +144,13 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Usuario:";
             // 
-            // dateTimePicker1
+            // dtFechaVenc
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
-            this.dateTimePicker1.Location = new System.Drawing.Point(91, 257);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(202, 21);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtFechaVenc.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
+            this.dtFechaVenc.Location = new System.Drawing.Point(91, 257);
+            this.dtFechaVenc.Name = "dtFechaVenc";
+            this.dtFechaVenc.Size = new System.Drawing.Size(202, 21);
+            this.dtFechaVenc.TabIndex = 7;
             // 
             // label5
             // 
@@ -161,14 +162,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Vencimiento:";
             // 
-            // comboBox1
+            // cmbPrioridades
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 220);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 23);
-            this.comboBox1.TabIndex = 5;
+            this.cmbPrioridades.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbPrioridades.FormattingEnabled = true;
+            this.cmbPrioridades.Location = new System.Drawing.Point(91, 220);
+            this.cmbPrioridades.Name = "cmbPrioridades";
+            this.cmbPrioridades.Size = new System.Drawing.Size(202, 23);
+            this.cmbPrioridades.TabIndex = 5;
             // 
             // label4
             // 
@@ -180,14 +181,14 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Prioridad:";
             // 
-            // richTextBox1
+            // rtxtDescripcion
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.richTextBox1.Location = new System.Drawing.Point(91, 103);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(202, 66);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.rtxtDescripcion.BackColor = System.Drawing.SystemColors.Menu;
+            this.rtxtDescripcion.Location = new System.Drawing.Point(91, 103);
+            this.rtxtDescripcion.Name = "rtxtDescripcion";
+            this.rtxtDescripcion.Size = new System.Drawing.Size(202, 66);
+            this.rtxtDescripcion.TabIndex = 3;
+            this.rtxtDescripcion.Text = "";
             // 
             // label3
             // 
@@ -199,13 +200,13 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripción:";
             // 
-            // textBox1
+            // txtTitulo
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Location = new System.Drawing.Point(91, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtTitulo.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtTitulo.Location = new System.Drawing.Point(91, 68);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(202, 21);
+            this.txtTitulo.TabIndex = 1;
             // 
             // label2
             // 
@@ -250,19 +251,19 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtFechaVenc;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPrioridades;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtxtDescripcion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

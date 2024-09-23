@@ -40,15 +40,20 @@
             this.gbUsuario = new System.Windows.Forms.GroupBox();
             this.optTodas = new System.Windows.Forms.RadioButton();
             this.optMisTareas = new System.Windows.Forms.RadioButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbControl = new System.Windows.Forms.TabControl();
+            this.tpHacer = new System.Windows.Forms.TabPage();
             this.dgvHacer = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpHaciendo = new System.Windows.Forms.TabPage();
             this.dgvHaciendo = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tpHecha = new System.Windows.Forms.TabPage();
             this.dgvHecha = new System.Windows.Forms.DataGridView();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbConfirmar = new System.Windows.Forms.ToolStripButton();
+            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
+            this.tsbPapelera = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tslLeyenda = new System.Windows.Forms.ToolStripLabel();
@@ -56,33 +61,28 @@
             this.tslBienvenido = new System.Windows.Forms.ToolStripLabel();
             this.tslUsuario = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.pbLogoPrincipal = new System.Windows.Forms.PictureBox();
-            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.tsbConfirmar = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
-            this.tsbPapelera = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrarSesion = new System.Windows.Forms.ToolStripButton();
+            this.pbLogoPrincipal = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.gbFiltros.SuspendLayout();
             this.gbUsuario.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tbControl.SuspendLayout();
+            this.tpHacer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHacer)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tpHaciendo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHaciendo)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tpHecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHecha)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -227,28 +227,28 @@
             this.optMisTareas.UseVisualStyleBackColor = true;
             this.optMisTareas.CheckedChanged += new System.EventHandler(this.optMisTareas_CheckedChanged);
             // 
-            // tabControl1
+            // tbControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(239, 107);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(637, 353);
-            this.tabControl1.TabIndex = 9;
+            this.tbControl.Controls.Add(this.tpHacer);
+            this.tbControl.Controls.Add(this.tpHaciendo);
+            this.tbControl.Controls.Add(this.tpHecha);
+            this.tbControl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbControl.Location = new System.Drawing.Point(239, 107);
+            this.tbControl.Name = "tbControl";
+            this.tbControl.SelectedIndex = 0;
+            this.tbControl.Size = new System.Drawing.Size(637, 353);
+            this.tbControl.TabIndex = 9;
             // 
-            // tabPage1
+            // tpHacer
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.OldLace;
-            this.tabPage1.Controls.Add(this.dgvHacer);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(629, 325);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "PARA HACER";
+            this.tpHacer.BackColor = System.Drawing.Color.OldLace;
+            this.tpHacer.Controls.Add(this.dgvHacer);
+            this.tpHacer.Location = new System.Drawing.Point(4, 24);
+            this.tpHacer.Name = "tpHacer";
+            this.tpHacer.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHacer.Size = new System.Drawing.Size(629, 325);
+            this.tpHacer.TabIndex = 0;
+            this.tpHacer.Text = "PARA HACER";
             // 
             // dgvHacer
             // 
@@ -262,16 +262,16 @@
             this.dgvHacer.Size = new System.Drawing.Size(623, 319);
             this.dgvHacer.TabIndex = 6;
             // 
-            // tabPage2
+            // tpHaciendo
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.OldLace;
-            this.tabPage2.Controls.Add(this.dgvHaciendo);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(629, 325);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "HACIENDO";
+            this.tpHaciendo.BackColor = System.Drawing.Color.OldLace;
+            this.tpHaciendo.Controls.Add(this.dgvHaciendo);
+            this.tpHaciendo.Location = new System.Drawing.Point(4, 24);
+            this.tpHaciendo.Name = "tpHaciendo";
+            this.tpHaciendo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHaciendo.Size = new System.Drawing.Size(629, 325);
+            this.tpHaciendo.TabIndex = 1;
+            this.tpHaciendo.Text = "HACIENDO";
             // 
             // dgvHaciendo
             // 
@@ -285,16 +285,16 @@
             this.dgvHaciendo.Size = new System.Drawing.Size(623, 319);
             this.dgvHaciendo.TabIndex = 0;
             // 
-            // tabPage3
+            // tpHecha
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.OldLace;
-            this.tabPage3.Controls.Add(this.dgvHecha);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(629, 325);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "HECHAS";
+            this.tpHecha.BackColor = System.Drawing.Color.OldLace;
+            this.tpHecha.Controls.Add(this.dgvHecha);
+            this.tpHecha.Location = new System.Drawing.Point(4, 24);
+            this.tpHecha.Name = "tpHecha";
+            this.tpHecha.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHecha.Size = new System.Drawing.Size(629, 325);
+            this.tpHecha.TabIndex = 2;
+            this.tpHecha.Text = "HECHAS";
             // 
             // dgvHecha
             // 
@@ -327,10 +327,56 @@
             this.toolStrip2.TabIndex = 8;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // tsbAgregar
+            // 
+            this.tsbAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAgregar.Image = global::pryGestorDeTareas.Properties.Resources.person_add_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAgregar.Name = "tsbAgregar";
+            this.tsbAgregar.Size = new System.Drawing.Size(22, 20);
+            this.tsbAgregar.Text = "Agregar Usuario";
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::pryGestorDeTareas.Properties.Resources.person_remove_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(22, 20);
+            this.tsbEliminar.Text = "Eliminar Usuario";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(22, 6);
+            // 
+            // tsbConfirmar
+            // 
+            this.tsbConfirmar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbConfirmar.Image = global::pryGestorDeTareas.Properties.Resources.check_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbConfirmar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbConfirmar.Name = "tsbConfirmar";
+            this.tsbConfirmar.Size = new System.Drawing.Size(22, 20);
+            this.tsbConfirmar.Text = "Completar Tarea";
+            this.tsbConfirmar.Click += new System.EventHandler(this.tsbConfirmar_Click);
+            // 
+            // tsbModificar
+            // 
+            this.tsbModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbModificar.Image = global::pryGestorDeTareas.Properties.Resources.edit_document_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificar.Name = "tsbModificar";
+            this.tsbModificar.Size = new System.Drawing.Size(22, 20);
+            this.tsbModificar.Text = "Modificar Tarea";
+            // 
+            // tsbPapelera
+            // 
+            this.tsbPapelera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPapelera.Image = global::pryGestorDeTareas.Properties.Resources.delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbPapelera.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPapelera.Name = "tsbPapelera";
+            this.tsbPapelera.Size = new System.Drawing.Size(22, 20);
+            this.tsbPapelera.Text = "Papelera";
             // 
             // toolStripSeparator7
             // 
@@ -397,83 +443,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(210, 6);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.BackColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.BackColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator4.ForeColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(210, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.BackColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator5.ForeColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(210, 6);
-            // 
-            // pbLogoPrincipal
-            // 
-            this.pbLogoPrincipal.BackColor = System.Drawing.Color.CadetBlue;
-            this.pbLogoPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoPrincipal.Image = global::pryGestorDeTareas.Properties.Resources.home_app_logo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.pbLogoPrincipal.Location = new System.Drawing.Point(308, 9);
-            this.pbLogoPrincipal.Name = "pbLogoPrincipal";
-            this.pbLogoPrincipal.Size = new System.Drawing.Size(100, 96);
-            this.pbLogoPrincipal.TabIndex = 12;
-            this.pbLogoPrincipal.TabStop = false;
-            // 
-            // tsbAgregar
-            // 
-            this.tsbAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAgregar.Image = global::pryGestorDeTareas.Properties.Resources.person_add_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAgregar.Name = "tsbAgregar";
-            this.tsbAgregar.Size = new System.Drawing.Size(22, 20);
-            this.tsbAgregar.Text = "Agregar";
-            // 
-            // tsbEliminar
-            // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEliminar.Image = global::pryGestorDeTareas.Properties.Resources.person_remove_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(22, 20);
-            this.tsbEliminar.Text = "Eliminar";
-            // 
-            // tsbConfirmar
-            // 
-            this.tsbConfirmar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbConfirmar.Image = global::pryGestorDeTareas.Properties.Resources.check_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbConfirmar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbConfirmar.Name = "tsbConfirmar";
-            this.tsbConfirmar.Size = new System.Drawing.Size(22, 20);
-            this.tsbConfirmar.Text = "Realizar Tarea";
-            // 
-            // tsbModificar
-            // 
-            this.tsbModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificar.Image = global::pryGestorDeTareas.Properties.Resources.edit_document_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificar.Name = "tsbModificar";
-            this.tsbModificar.Size = new System.Drawing.Size(22, 20);
-            this.tsbModificar.Text = "Modificar Tarea";
-            // 
-            // tsbPapelera
-            // 
-            this.tsbPapelera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPapelera.Image = global::pryGestorDeTareas.Properties.Resources.delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbPapelera.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPapelera.Name = "tsbPapelera";
-            this.tsbPapelera.Size = new System.Drawing.Size(22, 20);
-            this.tsbPapelera.Text = "Papelera";
-            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.AutoSize = false;
@@ -513,9 +482,16 @@
             this.eliminarToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eliminarToolStripMenuItem.Image = global::pryGestorDeTareas.Properties.Resources.close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar....";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
             // toolStripButton3
             // 
@@ -541,6 +517,13 @@
             this.toolStripButton4.Text = "REPORTES";
             this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.BackColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator4.ForeColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(210, 6);
+            // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.AutoSize = false;
@@ -560,9 +543,16 @@
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.Image = global::pryGestorDeTareas.Properties.Resources.person_search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
             this.toolStripMenuItem1.Text = "Ver...";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.BackColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator5.ForeColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(210, 6);
             // 
             // tsbCerrarSesion
             // 
@@ -577,6 +567,17 @@
             this.tsbCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbCerrarSesion.Click += new System.EventHandler(this.tsbCerrarSesion_Click);
             // 
+            // pbLogoPrincipal
+            // 
+            this.pbLogoPrincipal.BackColor = System.Drawing.Color.CadetBlue;
+            this.pbLogoPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoPrincipal.Image = global::pryGestorDeTareas.Properties.Resources.home_app_logo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.pbLogoPrincipal.Location = new System.Drawing.Point(308, 9);
+            this.pbLogoPrincipal.Name = "pbLogoPrincipal";
+            this.pbLogoPrincipal.Size = new System.Drawing.Size(100, 96);
+            this.pbLogoPrincipal.TabIndex = 12;
+            this.pbLogoPrincipal.TabStop = false;
+            // 
             // frmVentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,9 +586,10 @@
             this.Controls.Add(this.pbLogoPrincipal);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbControl);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmVentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Principal";
@@ -598,12 +600,12 @@
             this.gbFiltros.PerformLayout();
             this.gbUsuario.ResumeLayout(false);
             this.gbUsuario.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tbControl.ResumeLayout(false);
+            this.tpHacer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHacer)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.tpHaciendo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHaciendo)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.tpHecha.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHecha)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
@@ -629,12 +631,12 @@
         private System.Windows.Forms.GroupBox gbUsuario;
         private System.Windows.Forms.RadioButton optTodas;
         private System.Windows.Forms.RadioButton optMisTareas;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tbControl;
+        private System.Windows.Forms.TabPage tpHacer;
         private System.Windows.Forms.DataGridView dgvHacer;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpHaciendo;
         private System.Windows.Forms.DataGridView dgvHaciendo;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpHecha;
         private System.Windows.Forms.DataGridView dgvHecha;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton tsbAgregar;
