@@ -203,5 +203,81 @@ namespace pryGestorDeTareas
                 return;
             }
         }
+
+        private void tsbPapelera_Click(object sender, EventArgs e)
+        {
+            DataGridView dgvAux = null;
+            if (tbControl.SelectedTab == tpHacer)
+            {
+                dgvAux = dgvHacer;
+            }
+            if (tbControl.SelectedTab == tpHaciendo)
+            {
+                dgvAux = dgvHaciendo;
+            }
+            if (tbControl.SelectedTab == tpHecha)
+            {
+                dgvAux = dgvHecha;
+            }
+
+            if (dgvAux == null)
+            {
+                MessageBox.Show("Error al seleccionar la tarea", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (dgvAux.SelectedRows.Count > 0)
+                {
+                    int idTarea = Convert.ToInt32(dgvAux.SelectedRows[0].Cells["id_Tarea"].Value);
+
+                    DialogResult resultado = MessageBox.Show(
+                            "La tarea seleccionada se eliminará y no podrás recuperarla. ¿Estas seguro?",
+                            "Eliminar Tarea",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ObjPrincipal.EliminarTarea(idTarea);
+
+                        ObjPrincipal.ListarTareasUsuario(dgvHacer, "Hacer");
+                        ObjPrincipal.ListarTareasUsuario(dgvHaciendo, "Haciendo");
+                        ObjPrincipal.ListarTareasUsuario(dgvHecha, "Hecha");
+                        ObjPrincipal.ListarTareas(dgvHacer, "Hacer");
+                        ObjPrincipal.ListarTareas(dgvHaciendo, "Haciendo");
+                        ObjPrincipal.ListarTareas(dgvHecha, "Hecha");
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una tarea para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+        private void tsbAgregar_Click(object sender, EventArgs e)
+        {
+            frmUsuarios usuarios = new frmUsuarios();
+            usuarios.ShowDialog();
+        }
+
+        private void tsbRefrescar_Click(object sender, EventArgs e)
+        {
+            if (optMisTareas.Checked == true)
+            {
+                ObjPrincipal.ListarTareasUsuario(dgvHacer, "Hacer");
+                ObjPrincipal.ListarTareasUsuario(dgvHaciendo, "Haciendo");
+                ObjPrincipal.ListarTareasUsuario(dgvHecha, "Hecha");
+            }
+            if (optTodas.Checked == true)
+            {
+                ObjPrincipal.ListarTareas(dgvHacer, "Hacer");
+                ObjPrincipal.ListarTareas(dgvHaciendo, "Haciendo");
+                ObjPrincipal.ListarTareas(dgvHecha, "Hecha");
+            } 
+        }
     }
 }

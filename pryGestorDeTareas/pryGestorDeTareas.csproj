@@ -204,5 +204,14 @@
   <ItemGroup>
     <None Include="Resources\icons8-usuario-80.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\autorenew_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

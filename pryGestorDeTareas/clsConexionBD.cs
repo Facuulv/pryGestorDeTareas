@@ -230,9 +230,26 @@ namespace pryGestorDeTareas
                 MessageBox.Show("Error al modificar la tarea: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
-        public void EliminarTarea()
+        public void EliminarTarea(int idTarea)
         {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
 
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "DELETE FROM Tareas WHERE id_Tarea = ?";
+                comando.Parameters.AddWithValue("@id_Tarea", idTarea);
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se ha eliminado la tarea", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar la tarea: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
         public void CargarUsuarios(ComboBox cmbUsuarios)
         {
@@ -257,6 +274,47 @@ namespace pryGestorDeTareas
                             cmbUsuarios.SelectedIndex = -1;
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void CargarUsuarios(DataGridView dgvUsuarios)
+        {
+            try
+            {
+                try
+                {
+                    conexion = new OleDbConnection(cadena);
+                    comando = new OleDbCommand();
+
+                    comando.Connection = conexion;
+                    comando.CommandType = CommandType.Text;
+                    comando.CommandText = @"
+                    SELECT 
+                        u.id_Usuario,
+                        u.Nombre, 
+                        u.Contraseña, 
+                        u.Fecha_Creacion, 
+                        c.Cargo, 
+                        e.Estado
+                    FROM 
+                        ((Usuarios u
+                        INNER JOIN Cargos c ON u.Cargo = c.id_Cargo)
+                        INNER JOIN Estados e ON u.Estado = e.id_Estado)";
+                    conexion.Open();
+                    DataTable tablaUsuarios = new DataTable();
+
+                    adaptador = new OleDbDataAdapter(comando);
+                    adaptador.Fill(tablaUsuarios);
+
+                    dgvUsuarios.DataSource = tablaUsuarios;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -345,6 +403,66 @@ namespace pryGestorDeTareas
                             cmbEstados.DisplayMember = "Estado";
                             cmbEstados.ValueMember = "Estado";
                             cmbEstados.SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void EstadosUsuarios(ComboBox cmbEstados)
+        {
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    using (OleDbCommand comando = new OleDbCommand())
+                    {
+                        comando.Connection = conexion;
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = "SELECT id_Estado, Estado FROM Estados";
+                        conexion.Open();
+
+                        using (OleDbDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            cmbEstados.DataSource = dt;
+                            cmbEstados.DisplayMember = "Estado";
+                            cmbEstados.ValueMember = "id_Estado";
+                            cmbEstados.SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void CargosUsuarios(ComboBox cmbCargos)
+        {
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    using (OleDbCommand comando = new OleDbCommand())
+                    {
+                        comando.Connection = conexion;
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = "SELECT id_Cargo, Cargo FROM Cargos";
+                        conexion.Open();
+
+                        using (OleDbDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            cmbCargos.DataSource = dt;
+                            cmbCargos.DisplayMember = "Cargo";
+                            cmbCargos.ValueMember = "id_Cargo";
+                            cmbCargos.SelectedIndex = -1;
                         }
                     }
                 }
@@ -474,6 +592,31 @@ namespace pryGestorDeTareas
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cambiar el estado de la tarea: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void AgregarUsuario(string nombre, string contraseña, DateTime fechaCreacion, int cargo, int estado)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "INSERT INTO Usuarios (Nombre, Contraseña, Fecha_Creacion, Cargo, Estado) VALUES (?, ?, ?, ?, ?)";
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Contraseña", contraseña);
+                comando.Parameters.AddWithValue("@Fecha_Creacion", fechaCreacion);
+                comando.Parameters.AddWithValue("@Cargo", cargo);
+                comando.Parameters.AddWithValue("@Estado", estado);
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se ha agregado el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
