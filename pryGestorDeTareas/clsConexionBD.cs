@@ -94,18 +94,71 @@ namespace pryGestorDeTareas
                 comando.CommandType = CommandType.Text;
                 comando.CommandText = "SELECT * FROM Tareas WHERE Usuario = @Usuario AND Estado = @Estado";
 
+                // Aca se llama a la funcion para pasarle el id del usuario
                 int idUsuario = IdUsuario();
                 comando.Parameters.AddWithValue("@Usuario", idUsuario);
                 comando.Parameters.AddWithValue("@Estado", estado);
                 conexion.Open();
 
                 //Ejecuta la consulta y devuelve el datareader con los resultados
-                DataTable tablaContactos = new DataTable();
+                DataTable tablaTareas = new DataTable();
 
                 adaptador = new OleDbDataAdapter(comando);
-                adaptador.Fill(tablaContactos);
+                adaptador.Fill(tablaTareas);
 
-                dgvTareas.DataSource = tablaContactos;
+                dgvTareas.DataSource = tablaTareas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void ListarTareas(DataGridView dgvTareas)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT * FROM Tareas WHERE Usuario = @Usuario ORDER BY id_Tarea";
+
+                // Aca se llama a la funcion para pasarle el id del usuario
+                int idUsuario = IdUsuario();
+                comando.Parameters.AddWithValue("@Usuario", idUsuario);
+                conexion.Open();
+
+                DataTable tablaTareas = new DataTable();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(tablaTareas);
+
+                dgvTareas.DataSource = tablaTareas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void ListarTareas2(DataGridView dgvTareas)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT * FROM Tareas";
+                conexion.Open();
+
+                DataTable tablaTareas = new DataTable();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(tablaTareas);
+
+                dgvTareas.DataSource = tablaTareas;
             }
             catch (Exception ex)
             {
@@ -257,6 +310,63 @@ namespace pryGestorDeTareas
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        public void CargarEstados(ComboBox cmbEstados)
+        {
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    using (OleDbCommand comando = new OleDbCommand())
+                    {
+                        comando.Connection = conexion;
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = "SELECT DISTINCT Estado FROM Tareas";
+                        conexion.Open();
+
+                        using (OleDbDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            cmbEstados.DataSource = dt;
+                            cmbEstados.DisplayMember = "Estado";
+                            cmbEstados.ValueMember = "Estado";
+                            cmbEstados.SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public DataTable CargarDatosTarea(int idTarea)
+        {
+            DataTable datosTarea = new DataTable();
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                // Agregué parentesis pq sino no tomaba los inner join
+                comando.CommandText = @"
+                    SELECT t.Titulo, t.Descripcion, p.Prioridad, t.Fecha_Vencimiento, t.Estado, c.Categoria, u.Nombre 
+                    FROM ((Tareas t INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario) INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                    INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad WHERE t.id_Tarea = ?";                   
+                comando.Parameters.AddWithValue("@id_Tarea", idTarea);
+                conexion.Open();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(datosTarea);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datosTarea;
         }
         public void ConfirmarTarea(int idTarea, string estado)
         {

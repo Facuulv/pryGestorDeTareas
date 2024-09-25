@@ -216,13 +216,11 @@
             // optMisTareas
             // 
             this.optMisTareas.AutoSize = true;
-            this.optMisTareas.Checked = true;
             this.optMisTareas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optMisTareas.Location = new System.Drawing.Point(6, 20);
             this.optMisTareas.Name = "optMisTareas";
             this.optMisTareas.Size = new System.Drawing.Size(87, 19);
             this.optMisTareas.TabIndex = 0;
-            this.optMisTareas.TabStop = true;
             this.optMisTareas.Text = "Mis Tareas";
             this.optMisTareas.UseVisualStyleBackColor = true;
             this.optMisTareas.CheckedChanged += new System.EventHandler(this.optMisTareas_CheckedChanged);

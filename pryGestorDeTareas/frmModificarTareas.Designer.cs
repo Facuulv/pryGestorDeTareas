@@ -33,31 +33,31 @@
             this.optTodas = new System.Windows.Forms.RadioButton();
             this.optMisTareas = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbEstados = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaVenc = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPrioridades = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTareas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -74,7 +74,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvTareas);
             this.splitContainer1.Size = new System.Drawing.Size(801, 473);
             this.splitContainer1.SplitterDistance = 267;
             this.splitContainer1.TabIndex = 1;
@@ -99,42 +99,41 @@
             this.optTodas.Name = "optTodas";
             this.optTodas.Size = new System.Drawing.Size(121, 36);
             this.optTodas.TabIndex = 1;
-            this.optTodas.TabStop = true;
             this.optTodas.Text = "Todas las Tareas";
             this.optTodas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.optTodas.UseVisualStyleBackColor = true;
+            this.optTodas.CheckedChanged += new System.EventHandler(this.optTodas_CheckedChanged);
             // 
             // optMisTareas
             // 
             this.optMisTareas.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.optMisTareas.Checked = true;
             this.optMisTareas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optMisTareas.Location = new System.Drawing.Point(6, 19);
             this.optMisTareas.Name = "optMisTareas";
             this.optMisTareas.Size = new System.Drawing.Size(113, 36);
             this.optMisTareas.TabIndex = 0;
-            this.optMisTareas.TabStop = true;
             this.optMisTareas.Text = "Mis Tareas";
             this.optMisTareas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.optMisTareas.UseVisualStyleBackColor = true;
+            this.optMisTareas.CheckedChanged += new System.EventHandler(this.optMisTareas_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.cmbEstados);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cmbCategorias);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnModificar);
+            this.groupBox1.Controls.Add(this.cmbUsuarios);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtFechaVenc);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbPrioridades);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.rtxtDescripcion);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtTitulo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 102);
@@ -144,14 +143,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DE LA TAREA";
             // 
-            // comboBox4
+            // cmbEstados
             // 
-            this.comboBox4.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(73, 246);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(160, 23);
-            this.comboBox4.TabIndex = 15;
+            this.cmbEstados.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbEstados.FormattingEnabled = true;
+            this.cmbEstados.Location = new System.Drawing.Point(73, 246);
+            this.cmbEstados.Name = "cmbEstados";
+            this.cmbEstados.Size = new System.Drawing.Size(160, 23);
+            this.cmbEstados.TabIndex = 15;
             // 
             // label8
             // 
@@ -163,14 +162,14 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Estado:";
             // 
-            // comboBox3
+            // cmbCategorias
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(73, 174);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(160, 23);
-            this.comboBox3.TabIndex = 13;
+            this.cmbCategorias.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(73, 174);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(160, 23);
+            this.cmbCategorias.TabIndex = 13;
             // 
             // label7
             // 
@@ -182,34 +181,35 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Categoría:";
             // 
-            // button2
+            // btnLimpiar
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(126, 316);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 35);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "LIMPIAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(126, 316);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(107, 35);
+            this.btnLimpiar.TabIndex = 11;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // button1
+            // btnModificar
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(9, 316);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 35);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "MODIFICAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModificar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(9, 316);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(107, 35);
+            this.btnModificar.TabIndex = 10;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cmbUsuarios
             // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(73, 25);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 23);
-            this.comboBox2.TabIndex = 9;
+            this.cmbUsuarios.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbUsuarios.FormattingEnabled = true;
+            this.cmbUsuarios.Location = new System.Drawing.Point(73, 25);
+            this.cmbUsuarios.Name = "cmbUsuarios";
+            this.cmbUsuarios.Size = new System.Drawing.Size(160, 23);
+            this.cmbUsuarios.TabIndex = 9;
             // 
             // label6
             // 
@@ -221,13 +221,13 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Usuario:";
             // 
-            // dateTimePicker1
+            // dtFechaVenc
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
-            this.dateTimePicker1.Location = new System.Drawing.Point(88, 282);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(145, 21);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtFechaVenc.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
+            this.dtFechaVenc.Location = new System.Drawing.Point(88, 282);
+            this.dtFechaVenc.Name = "dtFechaVenc";
+            this.dtFechaVenc.Size = new System.Drawing.Size(145, 21);
+            this.dtFechaVenc.TabIndex = 7;
             // 
             // label5
             // 
@@ -239,14 +239,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Vencimiento:";
             // 
-            // comboBox1
+            // cmbPrioridades
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(73, 210);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 23);
-            this.comboBox1.TabIndex = 5;
+            this.cmbPrioridades.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbPrioridades.FormattingEnabled = true;
+            this.cmbPrioridades.Location = new System.Drawing.Point(73, 210);
+            this.cmbPrioridades.Name = "cmbPrioridades";
+            this.cmbPrioridades.Size = new System.Drawing.Size(160, 23);
+            this.cmbPrioridades.TabIndex = 5;
             // 
             // label4
             // 
@@ -258,14 +258,14 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Prioridad:";
             // 
-            // richTextBox1
+            // rtxtDescripcion
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.richTextBox1.Location = new System.Drawing.Point(88, 95);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(145, 66);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.rtxtDescripcion.BackColor = System.Drawing.SystemColors.Menu;
+            this.rtxtDescripcion.Location = new System.Drawing.Point(88, 95);
+            this.rtxtDescripcion.Name = "rtxtDescripcion";
+            this.rtxtDescripcion.Size = new System.Drawing.Size(145, 66);
+            this.rtxtDescripcion.TabIndex = 3;
+            this.rtxtDescripcion.Text = "";
             // 
             // label3
             // 
@@ -277,14 +277,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripción:";
             // 
-            // textBox1
+            // txtTitulo
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(73, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtTitulo.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTitulo.Location = new System.Drawing.Point(73, 61);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(160, 21);
+            this.txtTitulo.TabIndex = 1;
             // 
             // label2
             // 
@@ -308,15 +308,18 @@
             this.label1.Text = "MODIFICAR TAREAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // dgvTareas
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 473);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvTareas.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTareas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTareas.Location = new System.Drawing.Point(0, 0);
+            this.dgvTareas.Name = "dgvTareas";
+            this.dgvTareas.ReadOnly = true;
+            this.dgvTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTareas.Size = new System.Drawing.Size(530, 473);
+            this.dgvTareas.TabIndex = 0;
+            this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
             // 
             // frmModificarTareas
             // 
@@ -327,6 +330,7 @@
             this.Name = "frmModificarTareas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Tareas";
+            this.Load += new System.EventHandler(this.frmModificarTareas_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -334,7 +338,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,23 +350,23 @@
         private System.Windows.Forms.RadioButton optTodas;
         private System.Windows.Forms.RadioButton optMisTareas;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbEstados;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtFechaVenc;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPrioridades;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtxtDescripcion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTareas;
     }
 }

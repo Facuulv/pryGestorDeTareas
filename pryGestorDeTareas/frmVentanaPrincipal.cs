@@ -21,8 +21,6 @@ namespace pryGestorDeTareas
         {
             string usuario = clsConexionBD.Sesion.UsuarioActual;
             tslUsuario.Text = usuario;
-
-            //AjustarCol();
         }
 
         private void frmVentanaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
