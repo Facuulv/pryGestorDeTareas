@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.MonthCalendar;
 
 namespace pryGestorDeTareas
 {
@@ -66,7 +67,21 @@ namespace pryGestorDeTareas
 
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Tareas WHERE Estado = @Estado";
+                comando.CommandText = @"
+            SELECT 
+                t.id_Tarea,
+                t.Titulo, 
+                t.Descripcion, 
+                u.Nombre AS Usuario, 
+                c.Categoria, 
+                p.Prioridad, 
+                t.Fecha_Vencimiento, 
+                t.Estado
+            FROM 
+                ((Tareas t
+                INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario)
+                INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad WHERE t.Estado = ?";
                 comando.Parameters.AddWithValue("@Estado", estado);
                 conexion.Open();
 
@@ -92,67 +107,29 @@ namespace pryGestorDeTareas
 
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Tareas WHERE Usuario = @Usuario AND Estado = @Estado";
+                comando.CommandText = @"
+            SELECT 
+                t.id_Tarea,
+                t.Titulo, 
+                t.Descripcion, 
+                u.Nombre AS Usuario, 
+                c.Categoria, 
+                p.Prioridad, 
+                t.Fecha_Vencimiento, 
+                t.Estado
+            FROM 
+                ((Tareas t
+                INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario)
+                INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad WHERE Usuario = ? AND t.Estado = ?";
 
-                // Aca se llama a la funcion para pasarle el id del usuario
                 int idUsuario = IdUsuario();
                 comando.Parameters.AddWithValue("@Usuario", idUsuario);
                 comando.Parameters.AddWithValue("@Estado", estado);
+
                 conexion.Open();
 
                 //Ejecuta la consulta y devuelve el datareader con los resultados
-                DataTable tablaTareas = new DataTable();
-
-                adaptador = new OleDbDataAdapter(comando);
-                adaptador.Fill(tablaTareas);
-
-                dgvTareas.DataSource = tablaTareas;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        public void ListarTareas(DataGridView dgvTareas)
-        {
-            try
-            {
-                conexion = new OleDbConnection(cadena);
-                comando = new OleDbCommand();
-
-                comando.Connection = conexion;
-                comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Tareas WHERE Usuario = @Usuario ORDER BY id_Tarea";
-
-                // Aca se llama a la funcion para pasarle el id del usuario
-                int idUsuario = IdUsuario();
-                comando.Parameters.AddWithValue("@Usuario", idUsuario);
-                conexion.Open();
-
-                DataTable tablaTareas = new DataTable();
-
-                adaptador = new OleDbDataAdapter(comando);
-                adaptador.Fill(tablaTareas);
-
-                dgvTareas.DataSource = tablaTareas;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        public void ListarTareas2(DataGridView dgvTareas)
-        {
-            try
-            {
-                conexion = new OleDbConnection(cadena);
-                comando = new OleDbCommand();
-
-                comando.Connection = conexion;
-                comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Tareas";
-                conexion.Open();
-
                 DataTable tablaTareas = new DataTable();
 
                 adaptador = new OleDbDataAdapter(comando);
@@ -220,6 +197,42 @@ namespace pryGestorDeTareas
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        public void ModificarTarea(int idTarea, string titulo, string descripcion, int prioridad, DateTime fechaVen, string estado, int cate, int usuario)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "UPDATE Tareas SET Titulo = ?, Descripcion = ?," +
+                    " Prioridad = ?, Fecha_Vencimiento = ?, Estado = ?, Categoria = ?," +
+                    " Usuario = ? WHERE id_Tarea = ?";
+
+                comando.Parameters.AddWithValue("@Titulo", titulo);
+                comando.Parameters.AddWithValue("@Descripcion", descripcion);
+                comando.Parameters.AddWithValue("@Prioridad", prioridad);
+                comando.Parameters.AddWithValue("@Fecha_Vencimiento", fechaVen);
+                comando.Parameters.AddWithValue("@Estado", estado);
+                comando.Parameters.AddWithValue("@Categoria", cate);
+                comando.Parameters.AddWithValue("@Usuario", usuario);
+                comando.Parameters.AddWithValue("@id_Tarea", idTarea);
+
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se ha modificado la tarea", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar la tarea: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void EliminarTarea()
+        {
+
         }
         public void CargarUsuarios(ComboBox cmbUsuarios)
         {
@@ -367,6 +380,80 @@ namespace pryGestorDeTareas
                 MessageBox.Show("Error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return datosTarea;
+        }
+        public DataTable CargarTareas()
+        {
+            DataTable datosTareas = new DataTable();
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = @"
+            SELECT 
+                t.id_Tarea,
+                t.Titulo, 
+                t.Descripcion, 
+                u.Nombre AS Usuario, 
+                c.Categoria, 
+                p.Prioridad, 
+                t.Fecha_Vencimiento, 
+                t.Estado
+            FROM 
+                ((Tareas t
+                INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario)
+                INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad";
+
+                conexion.Open();
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(datosTareas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las tareas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
+            return datosTareas;
+        }
+        public DataTable CargarTareasUsuario()
+        {
+            DataTable datosTareas = new DataTable();
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = @"
+            SELECT 
+                t.id_Tarea,
+                t.Titulo, 
+                t.Descripcion, 
+                u.Nombre AS Usuario, 
+                c.Categoria, 
+                p.Prioridad, 
+                t.Fecha_Vencimiento, 
+                t.Estado
+            FROM 
+                ((Tareas t
+                INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario)
+                INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad WHERE t.Usuario = ?";
+
+                int idUsuario = IdUsuario();
+                comando.Parameters.AddWithValue("@Usuario", idUsuario);
+                conexion.Open();
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(datosTareas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las tareas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datosTareas;
         }
         public void ConfirmarTarea(int idTarea, string estado)
         {

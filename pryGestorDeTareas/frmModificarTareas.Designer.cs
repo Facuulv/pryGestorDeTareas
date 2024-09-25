@@ -201,6 +201,7 @@
             this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // cmbUsuarios
             // 

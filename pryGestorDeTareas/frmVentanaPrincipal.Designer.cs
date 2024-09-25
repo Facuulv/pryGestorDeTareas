@@ -259,6 +259,7 @@
             this.dgvHacer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHacer.Size = new System.Drawing.Size(623, 319);
             this.dgvHacer.TabIndex = 6;
+            this.dgvHacer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHacer_CellClick);
             // 
             // tpHaciendo
             // 
@@ -282,6 +283,7 @@
             this.dgvHaciendo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHaciendo.Size = new System.Drawing.Size(623, 319);
             this.dgvHaciendo.TabIndex = 0;
+            this.dgvHaciendo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHaciendo_CellClick);
             // 
             // tpHecha
             // 
@@ -305,6 +307,7 @@
             this.dgvHecha.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHecha.Size = new System.Drawing.Size(623, 319);
             this.dgvHecha.TabIndex = 0;
+            this.dgvHecha.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHecha_CellClick);
             // 
             // toolStrip2
             // 
@@ -366,6 +369,7 @@
             this.tsbModificar.Name = "tsbModificar";
             this.tsbModificar.Size = new System.Drawing.Size(22, 20);
             this.tsbModificar.Text = "Modificar Tarea";
+            this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
             // 
             // tsbPapelera
             // 

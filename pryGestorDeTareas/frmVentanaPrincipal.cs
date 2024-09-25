@@ -131,33 +131,76 @@ namespace pryGestorDeTareas
                 dgvAux = dgvHaciendo;
             }
 
-            if (dgvAux.SelectedRows.Count > 0)
+            if (dgvAux == null)
             {
-                int idTarea = Convert.ToInt32(dgvAux.SelectedRows[0].Cells["id_Tarea"].Value);
-
-                DialogResult resultado = MessageBox.Show(
-                        "La tarea seleccionada se va a marcar como Hecha. ¿Estas seguro?",
-                        "Completar Tarea",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-
-                if (resultado == DialogResult.Yes)
+                MessageBox.Show("La tarea seleccionada se encuentra como Hecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {               
+                if (dgvAux.SelectedRows.Count > 0)
                 {
-                    ObjPrincipal.ConfirmarTarea(idTarea, "Hecha");
-                    MessageBox.Show("La tarea seleccionada se ha completado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int idTarea = Convert.ToInt32(dgvAux.SelectedRows[0].Cells["id_Tarea"].Value);
 
-                    ObjPrincipal.ListarTareasUsuario(dgvHacer, "Hacer");
-                    ObjPrincipal.ListarTareasUsuario(dgvHaciendo, "Haciendo");
-                    ObjPrincipal.ListarTareasUsuario(dgvHecha, "Hecha");
+                    DialogResult resultado = MessageBox.Show(
+                            "La tarea seleccionada se va a marcar como Hecha. ¿Estas seguro?",
+                            "Completar Tarea",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ObjPrincipal.ConfirmarTarea(idTarea, "Hecha");
+                        MessageBox.Show("La tarea seleccionada se ha completado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ObjPrincipal.ListarTareasUsuario(dgvHacer, "Hacer");
+                        ObjPrincipal.ListarTareasUsuario(dgvHaciendo, "Haciendo");
+                        ObjPrincipal.ListarTareasUsuario(dgvHecha, "Hecha");
+                        ObjPrincipal.ListarTareas(dgvHacer, "Hacer");
+                        ObjPrincipal.ListarTareas(dgvHaciendo, "Haciendo");
+                        ObjPrincipal.ListarTareas(dgvHecha, "Hecha");
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
                 else
                 {
-                    return;
-                }               
+                    MessageBox.Show("Selecciona una tarea para confirmar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            
+        }
+
+        private void tsbModificar_Click(object sender, EventArgs e)
+        {
+            frmModificarTareas modificarTareas = new frmModificarTareas();
+            modificarTareas.ShowDialog();
+        }
+
+        private void dgvHacer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHacer.Rows[e.RowIndex].IsNewRow)
             {
-                MessageBox.Show("Selecciona una tarea para confirmar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error, estas seleccionando una fila vacía", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void dgvHaciendo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHaciendo.Rows[e.RowIndex].IsNewRow)
+            {
+                MessageBox.Show("Error, estas seleccionando una fila vacía", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void dgvHecha_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHecha.Rows[e.RowIndex].IsNewRow)
+            {
+                MessageBox.Show("Error, estas seleccionando una fila vacía", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
         }
     }
