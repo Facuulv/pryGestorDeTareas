@@ -32,7 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.cmbPrioridad = new System.Windows.Forms.ComboBox();
+            this.cmbPrioridades = new System.Windows.Forms.ComboBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.optVencimiento = new System.Windows.Forms.RadioButton();
             this.optPrioridad = new System.Windows.Forms.RadioButton();
@@ -48,33 +48,33 @@
             this.tpHecha = new System.Windows.Forms.TabPage();
             this.dgvHecha = new System.Windows.Forms.DataGridView();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbConfirmar = new System.Windows.Forms.ToolStripButton();
+            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
+            this.tsbPapelera = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbRefrescar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tslLeyenda = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tslBienvenido = new System.Windows.Forms.ToolStripLabel();
             this.tslUsuario = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.pbLogoPrincipal = new System.Windows.Forms.PictureBox();
-            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
-            this.tsbConfirmar = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
-            this.tsbPapelera = new System.Windows.Forms.ToolStripButton();
-            this.tsbRefrescar = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrarSesion = new System.Windows.Forms.ToolStripButton();
+            this.pbLogoPrincipal = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.gbFiltros.SuspendLayout();
             this.gbUsuario.SuspendLayout();
@@ -112,7 +112,7 @@
             // gbFiltros
             // 
             this.gbFiltros.Controls.Add(this.btnLimpiar);
-            this.gbFiltros.Controls.Add(this.cmbPrioridad);
+            this.gbFiltros.Controls.Add(this.cmbPrioridades);
             this.gbFiltros.Controls.Add(this.cmbCategorias);
             this.gbFiltros.Controls.Add(this.optVencimiento);
             this.gbFiltros.Controls.Add(this.optPrioridad);
@@ -135,15 +135,16 @@
             this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // cmbPrioridad
+            // cmbPrioridades
             // 
-            this.cmbPrioridad.BackColor = System.Drawing.SystemColors.Menu;
-            this.cmbPrioridad.FormattingEnabled = true;
-            this.cmbPrioridad.Location = new System.Drawing.Point(98, 41);
-            this.cmbPrioridad.Name = "cmbPrioridad";
-            this.cmbPrioridad.Size = new System.Drawing.Size(129, 23);
-            this.cmbPrioridad.TabIndex = 4;
+            this.cmbPrioridades.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbPrioridades.FormattingEnabled = true;
+            this.cmbPrioridades.Location = new System.Drawing.Point(98, 41);
+            this.cmbPrioridades.Name = "cmbPrioridades";
+            this.cmbPrioridades.Size = new System.Drawing.Size(129, 23);
+            this.cmbPrioridades.TabIndex = 4;
             // 
             // cmbCategorias
             // 
@@ -153,6 +154,7 @@
             this.cmbCategorias.Name = "cmbCategorias";
             this.cmbCategorias.Size = new System.Drawing.Size(129, 23);
             this.cmbCategorias.TabIndex = 3;
+            this.cmbCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbCategorias_SelectedIndexChanged);
             // 
             // optVencimiento
             // 
@@ -177,6 +179,7 @@
             this.optPrioridad.TabStop = true;
             this.optPrioridad.Text = "Prioridad";
             this.optPrioridad.UseVisualStyleBackColor = true;
+            this.optPrioridad.CheckedChanged += new System.EventHandler(this.optPrioridad_CheckedChanged);
             // 
             // optCategoria
             // 
@@ -189,6 +192,7 @@
             this.optCategoria.TabStop = true;
             this.optCategoria.Text = "Categorías";
             this.optCategoria.UseVisualStyleBackColor = true;
+            this.optCategoria.CheckedChanged += new System.EventHandler(this.optCategoria_CheckedChanged);
             // 
             // gbUsuario
             // 
@@ -329,15 +333,72 @@
             this.toolStrip2.TabIndex = 8;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // tsbAgregar
+            // 
+            this.tsbAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAgregar.Image = global::pryGestorDeTareas.Properties.Resources.person_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAgregar.Name = "tsbAgregar";
+            this.tsbAgregar.Size = new System.Drawing.Size(22, 20);
+            this.tsbAgregar.Text = "Agregar Usuario";
+            this.tsbAgregar.ToolTipText = "Usuarios";
+            this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(22, 6);
             // 
+            // tsbConfirmar
+            // 
+            this.tsbConfirmar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbConfirmar.Image = global::pryGestorDeTareas.Properties.Resources.check_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbConfirmar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbConfirmar.Name = "tsbConfirmar";
+            this.tsbConfirmar.Size = new System.Drawing.Size(22, 20);
+            this.tsbConfirmar.Text = "Completar Tarea";
+            this.tsbConfirmar.Click += new System.EventHandler(this.tsbConfirmar_Click);
+            // 
+            // tsbModificar
+            // 
+            this.tsbModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbModificar.Image = global::pryGestorDeTareas.Properties.Resources.edit_document_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificar.Name = "tsbModificar";
+            this.tsbModificar.Size = new System.Drawing.Size(22, 20);
+            this.tsbModificar.Text = "Modificar Tarea";
+            this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
+            // 
+            // tsbPapelera
+            // 
+            this.tsbPapelera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPapelera.Image = global::pryGestorDeTareas.Properties.Resources.delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbPapelera.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPapelera.Name = "tsbPapelera";
+            this.tsbPapelera.Size = new System.Drawing.Size(22, 20);
+            this.tsbPapelera.Text = "Papelera";
+            this.tsbPapelera.Click += new System.EventHandler(this.tsbPapelera_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(22, 6);
+            // 
+            // tsbRefrescar
+            // 
+            this.tsbRefrescar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRefrescar.Image = global::pryGestorDeTareas.Properties.Resources.refresh_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.tsbRefrescar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefrescar.Name = "tsbRefrescar";
+            this.tsbRefrescar.Size = new System.Drawing.Size(22, 20);
+            this.tsbRefrescar.Text = "Eliminar Usuario";
+            this.tsbRefrescar.ToolTipText = "Refrescar Grillas";
+            this.tsbRefrescar.Click += new System.EventHandler(this.tsbRefrescar_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(22, 6);
             // 
             // toolStrip1
             // 
@@ -399,95 +460,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(210, 6);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.BackColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.BackColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator4.ForeColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(210, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.BackColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator5.ForeColor = System.Drawing.Color.OldLace;
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(210, 6);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(22, 6);
-            // 
-            // pbLogoPrincipal
-            // 
-            this.pbLogoPrincipal.BackColor = System.Drawing.Color.CadetBlue;
-            this.pbLogoPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbLogoPrincipal.Image = global::pryGestorDeTareas.Properties.Resources.home_app_logo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.pbLogoPrincipal.Location = new System.Drawing.Point(308, 9);
-            this.pbLogoPrincipal.Name = "pbLogoPrincipal";
-            this.pbLogoPrincipal.Size = new System.Drawing.Size(100, 96);
-            this.pbLogoPrincipal.TabIndex = 12;
-            this.pbLogoPrincipal.TabStop = false;
-            // 
-            // tsbAgregar
-            // 
-            this.tsbAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAgregar.Image = global::pryGestorDeTareas.Properties.Resources.person_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAgregar.Name = "tsbAgregar";
-            this.tsbAgregar.Size = new System.Drawing.Size(22, 20);
-            this.tsbAgregar.Text = "Agregar Usuario";
-            this.tsbAgregar.ToolTipText = "Usuarios";
-            this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
-            // 
-            // tsbConfirmar
-            // 
-            this.tsbConfirmar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbConfirmar.Image = global::pryGestorDeTareas.Properties.Resources.check_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbConfirmar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbConfirmar.Name = "tsbConfirmar";
-            this.tsbConfirmar.Size = new System.Drawing.Size(22, 20);
-            this.tsbConfirmar.Text = "Completar Tarea";
-            this.tsbConfirmar.Click += new System.EventHandler(this.tsbConfirmar_Click);
-            // 
-            // tsbModificar
-            // 
-            this.tsbModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificar.Image = global::pryGestorDeTareas.Properties.Resources.edit_document_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificar.Name = "tsbModificar";
-            this.tsbModificar.Size = new System.Drawing.Size(22, 20);
-            this.tsbModificar.Text = "Modificar Tarea";
-            this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
-            // 
-            // tsbPapelera
-            // 
-            this.tsbPapelera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPapelera.Image = global::pryGestorDeTareas.Properties.Resources.delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbPapelera.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPapelera.Name = "tsbPapelera";
-            this.tsbPapelera.Size = new System.Drawing.Size(22, 20);
-            this.tsbPapelera.Text = "Papelera";
-            this.tsbPapelera.Click += new System.EventHandler(this.tsbPapelera_Click);
-            // 
-            // tsbRefrescar
-            // 
-            this.tsbRefrescar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbRefrescar.Image = global::pryGestorDeTareas.Properties.Resources.refresh_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
-            this.tsbRefrescar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRefrescar.Name = "tsbRefrescar";
-            this.tsbRefrescar.Size = new System.Drawing.Size(22, 20);
-            this.tsbRefrescar.Text = "Eliminar Usuario";
-            this.tsbRefrescar.ToolTipText = "Refrescar Grillas";
-            this.tsbRefrescar.Click += new System.EventHandler(this.tsbRefrescar_Click);
-            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.AutoSize = false;
@@ -531,6 +503,13 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar....";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
+            // 
             // toolStripButton3
             // 
             this.toolStripButton3.AutoSize = false;
@@ -555,6 +534,13 @@
             this.toolStripButton4.Text = "REPORTES";
             this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.BackColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator4.ForeColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(210, 6);
+            // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.AutoSize = false;
@@ -578,6 +564,13 @@
             this.toolStripMenuItem1.Text = "Ver...";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.BackColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator5.ForeColor = System.Drawing.Color.OldLace;
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(210, 6);
+            // 
             // tsbCerrarSesion
             // 
             this.tsbCerrarSesion.AutoSize = false;
@@ -590,6 +583,17 @@
             this.tsbCerrarSesion.Text = "CERRAR SESIÓN";
             this.tsbCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbCerrarSesion.Click += new System.EventHandler(this.tsbCerrarSesion_Click);
+            // 
+            // pbLogoPrincipal
+            // 
+            this.pbLogoPrincipal.BackColor = System.Drawing.Color.CadetBlue;
+            this.pbLogoPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogoPrincipal.Image = global::pryGestorDeTareas.Properties.Resources.home_app_logo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24;
+            this.pbLogoPrincipal.Location = new System.Drawing.Point(308, 9);
+            this.pbLogoPrincipal.Name = "pbLogoPrincipal";
+            this.pbLogoPrincipal.Size = new System.Drawing.Size(100, 96);
+            this.pbLogoPrincipal.TabIndex = 12;
+            this.pbLogoPrincipal.TabStop = false;
             // 
             // frmVentanaPrincipal
             // 
@@ -636,7 +640,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gbFiltros;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ComboBox cmbPrioridad;
+        private System.Windows.Forms.ComboBox cmbPrioridades;
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.RadioButton optVencimiento;
         private System.Windows.Forms.RadioButton optPrioridad;

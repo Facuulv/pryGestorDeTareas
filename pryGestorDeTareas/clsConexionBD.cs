@@ -8,6 +8,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.MonthCalendar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace pryGestorDeTareas
 {
@@ -142,7 +143,7 @@ namespace pryGestorDeTareas
                 MessageBox.Show(ex.Message);
             }
         }
-        private int IdUsuario()
+        public int IdUsuario()
         {
             int idUsuario = -1;
             try
@@ -381,7 +382,7 @@ namespace pryGestorDeTareas
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }       
         public void CargarEstados(ComboBox cmbEstados)
         {
             try
@@ -573,6 +574,40 @@ namespace pryGestorDeTareas
             }
             return datosTareas;
         }
+        public DataTable DatosUsuarios(int idUsuario)
+        {
+            DataTable datosUsuarios = new DataTable();
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = @"
+                SELECT 
+                    u.id_Usuario,
+                    u.Nombre, 
+                    u.Contraseña, 
+                    u.Fecha_Creacion, 
+                    c.Cargo, 
+                    e.Estado
+                FROM 
+                    ((Usuarios u
+                    INNER JOIN Cargos c ON u.Cargo = c.id_Cargo)
+                    INNER JOIN Estados e ON u.Estado = e.id_Estado) WHERE u.id_Usuario = ?";
+                comando.Parameters.AddWithValue("@id_Usuario", idUsuario);
+                conexion.Open();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(datosUsuarios);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            return datosUsuarios;
+        }
         public void ConfirmarTarea(int idTarea, string estado)
         {
             try
@@ -617,6 +652,171 @@ namespace pryGestorDeTareas
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void ModificarUsuario(string nombre, string contraseña, DateTime fechaCreacion, int cargo, int estado, int idUsuario)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "UPDATE Usuarios SET Nombre = ?, Contraseña = ?, Fecha_Creacion = ?, Cargo = ?, Estado = ? WHERE id_Usuario = ?";
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Contraseña", contraseña);
+                comando.Parameters.AddWithValue("@Fecha_Creacion", fechaCreacion);
+                comando.Parameters.AddWithValue("@Cargo", cargo);
+                comando.Parameters.AddWithValue("@Estado", estado);
+                comando.Parameters.AddWithValue("@id_Usuario", idUsuario);
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se ha modificado el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public bool VerificarUsuario(string nombre)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT COUNT(*) FROM Usuarios WHERE Nombre = ?";
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+
+                conexion.Open();
+                int contador = (int)comando.ExecuteScalar();
+                return contador > 0;                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
+        }
+        public void EliminarUsuario(int idUsuario)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "DELETE FROM Usuarios WHERE id_Usuario = ?";
+                comando.Parameters.AddWithValue("@id_Usuario", idUsuario);
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se ha eliminado el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void BuscarCategoria(DataGridView dgvTareas, string cate, string estado)
+        {
+            try
+            {
+                try
+                {
+                    conexion = new OleDbConnection(cadena);
+                    comando = new OleDbCommand();
+
+                    comando.Connection = conexion;
+                    comando.CommandType = CommandType.Text;
+                    comando.CommandText = @"
+                    SELECT 
+                        t.id_Tarea,
+                        t.Titulo, 
+                        t.Descripcion, 
+                        p.Prioridad, 
+                        t.Fecha_Vencimiento, 
+                        t.Estado,
+                        c.Categoria,
+                        u.Nombre
+                    FROM 
+                        ((Tareas t
+                        INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad)
+                        INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                        INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario WHERE c.Categoria = ? AND t.Estado = ?";
+
+                    comando.Parameters.AddWithValue("@Categoria", cate);
+                    comando.Parameters.AddWithValue("@Estado", estado);
+                    conexion.Open();
+                    DataTable tablaTareas = new DataTable();
+
+                    adaptador = new OleDbDataAdapter(comando);
+                    adaptador.Fill(tablaTareas);
+
+                    dgvTareas.DataSource = tablaTareas;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void BuscarCategoriaUsuario(DataGridView dgvTareas, string cate, string estado)
+        {
+            try
+            {
+                try
+                {
+                    conexion = new OleDbConnection(cadena);
+                    comando = new OleDbCommand();
+
+                    comando.Connection = conexion;
+                    comando.CommandType = CommandType.Text;
+                    comando.CommandText = @"
+                    SELECT 
+                        t.id_Tarea,
+                        t.Titulo, 
+                        t.Descripcion, 
+                        p.Prioridad, 
+                        t.Fecha_Vencimiento, 
+                        t.Estado,
+                        c.Categoria,
+                        u.Nombre
+                    FROM 
+                        ((Tareas t
+                        INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad)
+                        INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                        INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario WHERE c.Categoria = ? AND t.Estado = ? AND t.Usuario = ?";
+
+                    comando.Parameters.AddWithValue("@Categoria", cate);
+                    comando.Parameters.AddWithValue("@Estado", estado);
+                    int idUsuario = IdUsuario();
+                    comando.Parameters.AddWithValue("@Usuario", idUsuario);
+                    conexion.Open();
+                    DataTable tablaTareas = new DataTable();
+
+                    adaptador = new OleDbDataAdapter(comando);
+                    adaptador.Fill(tablaTareas);
+
+                    dgvTareas.DataSource = tablaTareas;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

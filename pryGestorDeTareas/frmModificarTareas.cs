@@ -113,6 +113,17 @@ namespace pryGestorDeTareas
                 DateTime fechaVenc = dtFechaVenc.Value.Date;
 
                 ObjModificar.ModificarTarea(idTarea, titulo, descripcion, prioridad, fechaVenc, estado, cate, usuario);
+
+                if (optMisTareas.Checked == true)
+                {
+                    DataTable datosTareasU = ObjModificar.CargarTareasUsuario();
+                    dgvTareas.DataSource = datosTareasU;
+                }
+                if (optTodas.Checked == true)
+                {
+                    DataTable datosTareas = ObjModificar.CargarTareas();
+                    dgvTareas.DataSource = datosTareas;
+                }               
             } else
             {
                 MessageBox.Show("Debe rellenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);

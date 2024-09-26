@@ -21,6 +21,9 @@ namespace pryGestorDeTareas
         {
             string usuario = clsConexionBD.Sesion.UsuarioActual;
             tslUsuario.Text = usuario;
+            Controles();
+            ObjPrincipal.CargarCategorias(cmbCategorias);
+            ObjPrincipal.CargarPrioridades(cmbPrioridades);
         }
 
         private void frmVentanaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -278,6 +281,64 @@ namespace pryGestorDeTareas
                 ObjPrincipal.ListarTareas(dgvHaciendo, "Haciendo");
                 ObjPrincipal.ListarTareas(dgvHecha, "Hecha");
             } 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            optMisTareas.Checked = true;
+            optTodas.Checked = false;
+            optCategoria.Checked = false;
+            optPrioridad.Checked = false;
+            optVencimiento.Checked = false;
+            
+            cmbCategorias.Text = "";
+            cmbPrioridades.Text = "";
+            cmbCategorias.Enabled = false;
+            cmbPrioridades.Enabled = false;
+        }
+
+        private void optCategoria_CheckedChanged(object sender, EventArgs e)
+        {
+            Controles();
+        }
+
+        private void optPrioridad_CheckedChanged(object sender, EventArgs e)
+        {
+            Controles();
+        }
+        private void Controles()
+        {
+            cmbCategorias.Enabled = false;
+            cmbPrioridades.Enabled = false;
+            if (optCategoria.Checked == true)
+            {
+                cmbCategorias.Enabled = true;
+                cmbPrioridades.Enabled = false;
+                cmbPrioridades.Text = "";
+            }
+            if (optPrioridad.Checked == true)
+            {
+                cmbPrioridades.Enabled = true;
+                cmbCategorias.Enabled = false;
+                cmbCategorias.Text = "";
+            }
+        }
+
+        private void cmbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string cate = cmbCategorias.Text;
+            if (optMisTareas.Checked == true)
+            {
+                ObjPrincipal.BuscarCategoriaUsuario(dgvHacer, cate, "Hacer");
+                ObjPrincipal.BuscarCategoriaUsuario(dgvHaciendo, cate, "Haciendo");
+                ObjPrincipal.BuscarCategoriaUsuario(dgvHecha, cate, "Hecha");
+            }
+            if (optTodas.Checked == true)
+            {
+                ObjPrincipal.BuscarCategoria(dgvHacer, cate, "Hacer");
+                ObjPrincipal.BuscarCategoria(dgvHaciendo, cate, "Haciendo");
+                ObjPrincipal.BuscarCategoria(dgvHecha, cate, "Hecha");
+            }
         }
     }
 }
