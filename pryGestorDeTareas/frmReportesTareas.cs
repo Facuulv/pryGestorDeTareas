@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace pryGestorDeTareas
+{
+    public partial class frmReportesTareas : Form
+    {
+        public frmReportesTareas()
+        {
+            InitializeComponent();
+        }
+
+        private void frmReportesTareas_Load(object sender, EventArgs e)
+        {
+
+        }      
+    }
+}

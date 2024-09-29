@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.optTodas = new System.Windows.Forms.RadioButton();
             this.optMisTareas = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,13 +50,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTareas = new System.Windows.Forms.DataGridView();
+            this.panel7 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -68,7 +68,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.panel7);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
@@ -79,23 +79,11 @@
             this.splitContainer1.SplitterDistance = 267;
             this.splitContainer1.TabIndex = 1;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.optTodas);
-            this.groupBox2.Controls.Add(this.optMisTareas);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 39);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(242, 57);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FILTRAR TAREAS";
-            // 
             // optTodas
             // 
             this.optTodas.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.optTodas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optTodas.Location = new System.Drawing.Point(115, 19);
+            this.optTodas.Location = new System.Drawing.Point(114, 6);
             this.optTodas.Name = "optTodas";
             this.optTodas.Size = new System.Drawing.Size(121, 36);
             this.optTodas.TabIndex = 1;
@@ -108,7 +96,7 @@
             // 
             this.optMisTareas.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.optMisTareas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optMisTareas.Location = new System.Drawing.Point(6, 19);
+            this.optMisTareas.Location = new System.Drawing.Point(7, 6);
             this.optMisTareas.Name = "optMisTareas";
             this.optMisTareas.Size = new System.Drawing.Size(113, 36);
             this.optMisTareas.TabIndex = 0;
@@ -322,6 +310,16 @@
             this.dgvTareas.TabIndex = 0;
             this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
             // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.optMisTareas);
+            this.panel7.Controls.Add(this.optTodas);
+            this.panel7.Location = new System.Drawing.Point(12, 47);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(242, 49);
+            this.panel7.TabIndex = 9;
+            // 
             // frmModificarTareas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,10 +334,10 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -347,7 +345,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton optTodas;
         private System.Windows.Forms.RadioButton optMisTareas;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -369,5 +366,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvTareas;
+        private System.Windows.Forms.Panel panel7;
     }
 }

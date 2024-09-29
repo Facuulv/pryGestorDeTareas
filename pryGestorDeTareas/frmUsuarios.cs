@@ -125,5 +125,14 @@ namespace pryGestorDeTareas
                 MessageBox.Show("Error al modificar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Text = "";
+            txtContraseña.Text = "";
+            cmbCargo.Text = "";
+            cmbEstado.Text = "";
+            dtFechaCreacion.ResetText();
+        }
     }
 }

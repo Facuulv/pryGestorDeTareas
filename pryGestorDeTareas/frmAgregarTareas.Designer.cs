@@ -55,9 +55,10 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(340, 389);
+            this.panel1.Size = new System.Drawing.Size(452, 478);
             this.panel1.TabIndex = 1;
             // 
             // groupBox1
@@ -77,9 +78,11 @@
             this.groupBox1.Controls.Add(this.txtTitulo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 39);
+            this.groupBox1.Location = new System.Drawing.Point(20, 48);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 335);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(412, 412);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DE LA TAREA";
@@ -88,16 +91,18 @@
             // 
             this.cmbCategorias.BackColor = System.Drawing.SystemColors.Menu;
             this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(91, 183);
+            this.cmbCategorias.Location = new System.Drawing.Point(121, 225);
+            this.cmbCategorias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbCategorias.Name = "cmbCategorias";
-            this.cmbCategorias.Size = new System.Drawing.Size(202, 23);
+            this.cmbCategorias.Size = new System.Drawing.Size(268, 23);
             this.cmbCategorias.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 186);
+            this.label7.Location = new System.Drawing.Point(12, 229);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 15);
             this.label7.TabIndex = 12;
@@ -106,9 +111,10 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(197, 292);
+            this.btnLimpiar.Location = new System.Drawing.Point(263, 359);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(96, 35);
+            this.btnLimpiar.Size = new System.Drawing.Size(128, 43);
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -117,9 +123,10 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(91, 292);
+            this.btnAgregar.Location = new System.Drawing.Point(121, 359);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(96, 35);
+            this.btnAgregar.Size = new System.Drawing.Size(128, 43);
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -129,16 +136,18 @@
             // 
             this.cmbUsuarios.BackColor = System.Drawing.SystemColors.Menu;
             this.cmbUsuarios.FormattingEnabled = true;
-            this.cmbUsuarios.Location = new System.Drawing.Point(91, 31);
+            this.cmbUsuarios.Location = new System.Drawing.Point(121, 38);
+            this.cmbUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbUsuarios.Name = "cmbUsuarios";
-            this.cmbUsuarios.Size = new System.Drawing.Size(202, 23);
+            this.cmbUsuarios.Size = new System.Drawing.Size(268, 23);
             this.cmbUsuarios.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 34);
+            this.label6.Location = new System.Drawing.Point(12, 42);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 15);
             this.label6.TabIndex = 8;
@@ -147,16 +156,18 @@
             // dtFechaVenc
             // 
             this.dtFechaVenc.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
-            this.dtFechaVenc.Location = new System.Drawing.Point(91, 257);
+            this.dtFechaVenc.Location = new System.Drawing.Point(121, 316);
+            this.dtFechaVenc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtFechaVenc.Name = "dtFechaVenc";
-            this.dtFechaVenc.Size = new System.Drawing.Size(202, 21);
+            this.dtFechaVenc.Size = new System.Drawing.Size(268, 21);
             this.dtFechaVenc.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 262);
+            this.label5.Location = new System.Drawing.Point(12, 322);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 15);
             this.label5.TabIndex = 6;
@@ -166,16 +177,18 @@
             // 
             this.cmbPrioridades.BackColor = System.Drawing.SystemColors.Menu;
             this.cmbPrioridades.FormattingEnabled = true;
-            this.cmbPrioridades.Location = new System.Drawing.Point(91, 220);
+            this.cmbPrioridades.Location = new System.Drawing.Point(121, 271);
+            this.cmbPrioridades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbPrioridades.Name = "cmbPrioridades";
-            this.cmbPrioridades.Size = new System.Drawing.Size(202, 23);
+            this.cmbPrioridades.Size = new System.Drawing.Size(268, 23);
             this.cmbPrioridades.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 223);
+            this.label4.Location = new System.Drawing.Point(12, 274);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 15);
             this.label4.TabIndex = 4;
@@ -184,9 +197,10 @@
             // rtxtDescripcion
             // 
             this.rtxtDescripcion.BackColor = System.Drawing.SystemColors.Menu;
-            this.rtxtDescripcion.Location = new System.Drawing.Point(91, 103);
+            this.rtxtDescripcion.Location = new System.Drawing.Point(121, 127);
+            this.rtxtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
-            this.rtxtDescripcion.Size = new System.Drawing.Size(202, 66);
+            this.rtxtDescripcion.Size = new System.Drawing.Size(268, 80);
             this.rtxtDescripcion.TabIndex = 3;
             this.rtxtDescripcion.Text = "";
             // 
@@ -194,7 +208,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 106);
+            this.label3.Location = new System.Drawing.Point(12, 130);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 15);
             this.label3.TabIndex = 2;
@@ -203,16 +218,18 @@
             // txtTitulo
             // 
             this.txtTitulo.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtTitulo.Location = new System.Drawing.Point(91, 68);
+            this.txtTitulo.Location = new System.Drawing.Point(121, 84);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(202, 21);
+            this.txtTitulo.Size = new System.Drawing.Size(268, 21);
             this.txtTitulo.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 71);
+            this.label2.Location = new System.Drawing.Point(12, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 0;
@@ -224,18 +241,20 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(-1, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 36);
+            this.label1.Size = new System.Drawing.Size(453, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "AGREGAR TAREAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAgregarTareas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 410);
+            this.ClientSize = new System.Drawing.Size(488, 505);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAgregarTareas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Tareas";
