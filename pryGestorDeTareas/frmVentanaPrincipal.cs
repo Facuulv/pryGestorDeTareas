@@ -292,5 +292,11 @@ namespace pryGestorDeTareas
             frmBuscarTareas buscar = new frmBuscarTareas();
             buscar.ShowDialog();
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            frmReportesTareas frmReportesTareas = new frmReportesTareas();
+            frmReportesTareas.Show();
+        }
     }
 }

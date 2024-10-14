@@ -16,10 +16,26 @@ namespace pryGestorDeTareas
         {
             InitializeComponent();
         }
-
+        clsConexionBD ObjReportes = new clsConexionBD();
         private void frmReportesTareas_Load(object sender, EventArgs e)
         {
 
-        }      
+        }
+
+        private void btnPendientes_Click(object sender, EventArgs e)
+        {
+            ObjReportes.TareasPendientes(txtPendientes);
+        }
+
+        private void btnCompletadas_Click(object sender, EventArgs e)
+        {
+            ObjReportes.TareasCompletadas(txtCompletadas);
+        }
+
+        private void btnLimpiarTodo_Click(object sender, EventArgs e)
+        {
+            txtCompletadas.Clear();
+            txtPendientes.Clear();
+        }
     }
 }

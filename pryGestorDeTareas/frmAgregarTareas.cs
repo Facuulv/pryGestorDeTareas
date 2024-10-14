@@ -57,5 +57,10 @@ namespace pryGestorDeTareas
             cmbPrioridades.Text = "";
             dtFechaVenc.Text = "";
         }
+
+        private void txtTitulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

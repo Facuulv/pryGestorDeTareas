@@ -1073,5 +1073,87 @@ namespace pryGestorDeTareas
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void TareasPendientes(TextBox txtPendientes)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT t.Titulo, t.Descripcion, t.Fecha_Vencimiento, u.Nombre, t.Estado " +
+                    "FROM Tareas t INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario WHERE t.Estado IN ('Hacer', 'Haciendo')";
+
+                conexion.Open();
+                using (OleDbDataReader reader = comando.ExecuteReader())
+                {
+                    txtPendientes.Clear();
+
+                    while (reader.Read())
+                    {
+                        string titulo = reader["Titulo"].ToString();
+                        string descripcion = reader["Descripcion"].ToString();
+                        string usuario = reader["Nombre"].ToString();
+                        string estado = reader["Estado"].ToString();
+                        DateTime fechaVencimiento = Convert.ToDateTime(reader["Fecha_Vencimiento"]);
+
+                        string reporte = $"Título: {titulo}\r\n" +
+                                         $"Descripción: {descripcion}\r\n" +
+                                         $"Usuario: {usuario}\r\n" +
+                                         $"Estado: {estado}\r\n" +
+                                         $"Fecha de vencimiento: {fechaVencimiento.ToShortDateString()}\r\n" +
+                                         $"----------------------------\r\n";
+
+                        txtPendientes.AppendText(reporte);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void TareasCompletadas(TextBox txtCompletadas)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT t.Titulo, t.Descripcion, t.Fecha_Vencimiento, u.Nombre, t.Estado " +
+                    "FROM Tareas t INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario WHERE t.Estado IN ('Hecha')";
+
+                conexion.Open();
+                using (OleDbDataReader reader = comando.ExecuteReader())
+                {
+                    txtCompletadas.Clear();
+
+                    while (reader.Read())
+                    {
+                        string titulo = reader["Titulo"].ToString();
+                        string descripcion = reader["Descripcion"].ToString();
+                        string usuario = reader["Nombre"].ToString();
+                        string estado = reader["Estado"].ToString();
+                        DateTime fechaVencimiento = Convert.ToDateTime(reader["Fecha_Vencimiento"]);
+
+                        string reporte = $"Título: {titulo}\r\n" +
+                                         $"Descripción: {descripcion}\r\n" +
+                                         $"Usuario: {usuario}\r\n" +
+                                         $"Estado: {estado}\r\n" +
+                                         $"Fecha de vencimiento: {fechaVencimiento.ToShortDateString()}\r\n" +
+                                         $"----------------------------\r\n";
+
+                        txtCompletadas.AppendText(reporte);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
