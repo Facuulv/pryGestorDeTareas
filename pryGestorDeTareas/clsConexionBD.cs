@@ -59,6 +59,43 @@ namespace pryGestorDeTareas
         {
             public static string UsuarioActual { get; set; }  // es para guardar el usuario para despues filtrar x usuario q ingreso o  por todos
         }
+        public void ListarTareas(DataGridView dgvTareas)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = @"
+            SELECT 
+                t.id_Tarea,
+                t.Titulo, 
+                t.Descripcion, 
+                u.Nombre AS Usuario, 
+                c.Categoria, 
+                p.Prioridad, 
+                t.Fecha_Vencimiento, 
+                t.Estado
+            FROM 
+                ((Tareas t
+                INNER JOIN Usuarios u ON t.Usuario = u.id_Usuario)
+                INNER JOIN Categorias c ON t.Categoria = c.id_Categoria)
+                INNER JOIN Prioridades p ON t.Prioridad = p.id_Prioridad";
+                conexion.Open();
+                DataTable tablaTareas = new DataTable();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(tablaTareas);
+
+                dgvTareas.DataSource = tablaTareas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void ListarTareas(DataGridView dgvTareas, string estado)
         {
             try
@@ -246,6 +283,26 @@ namespace pryGestorDeTareas
                 conexion.Open();
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Se ha eliminado la tarea", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar la tarea: " + ex.Message, "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void EliminarTodo()
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "DELETE * FROM Tareas";
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Se han eliminado todas las tareas.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

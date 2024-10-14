@@ -28,181 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTareas = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtIdTarea = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnEliminarTodo = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvTareas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(324, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(473, 258);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvTareas.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTareas.Location = new System.Drawing.Point(432, 15);
+            this.dgvTareas.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvTareas.Name = "dgvTareas";
+            this.dgvTareas.ReadOnly = true;
+            this.dgvTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTareas.Size = new System.Drawing.Size(777, 242);
+            this.dgvTareas.TabIndex = 6;
+            this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.btnEliminarTodo);
+            this.panel1.Controls.Add(this.btnListar);
+            this.panel1.Controls.Add(this.btnLimpiar);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(306, 258);
+            this.panel1.Size = new System.Drawing.Size(408, 242);
             this.panel1.TabIndex = 5;
             // 
-            // button3
+            // btnListar
             // 
-            this.button3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(13, 214);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(277, 36);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "LIMPIAR TODO";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnListar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListar.Location = new System.Drawing.Point(211, 74);
+            this.btnListar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(175, 44);
+            this.btnListar.TabIndex = 8;
+            this.btnListar.Text = "LISTAR";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // groupBox3
+            // btnLimpiar
             // 
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Location = new System.Drawing.Point(13, 40);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(277, 58);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "FILTROS";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radioButton2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(156, 14);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(105, 32);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Eliminar Tarea";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radioButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(25, 14);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 38);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Dar de Baja";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(211, 132);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(175, 44);
+            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.txtIdTarea);
+            this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(159, 104);
+            this.groupBox2.Location = new System.Drawing.Point(17, 48);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(131, 104);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(175, 128);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ELIMINAR";
             // 
-            // textBox1
+            // txtIdTarea
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(6, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 21);
-            this.textBox1.TabIndex = 3;
+            this.txtIdTarea.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtIdTarea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdTarea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdTarea.Location = new System.Drawing.Point(8, 49);
+            this.txtIdTarea.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdTarea.Name = "txtIdTarea";
+            this.txtIdTarea.Size = new System.Drawing.Size(158, 26);
+            this.txtIdTarea.TabIndex = 3;
+            this.txtIdTarea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 68);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 31);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "ELIMINAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(8, 84);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(159, 38);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 21);
+            this.label3.Location = new System.Drawing.Point(9, 26);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Id Tarea:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 104);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(131, 104);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ESTADO";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(6, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "BAJA";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Estado:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 23);
-            this.comboBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -210,49 +152,56 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 36);
+            this.label1.Size = new System.Drawing.Size(405, 44);
             this.label1.TabIndex = 2;
             this.label1.Text = "ELIMINAR TAREAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnEliminarTodo
+            // 
+            this.btnEliminarTodo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarTodo.Location = new System.Drawing.Point(17, 184);
+            this.btnEliminarTodo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarTodo.Name = "btnEliminarTodo";
+            this.btnEliminarTodo.Size = new System.Drawing.Size(369, 44);
+            this.btnEliminarTodo.TabIndex = 9;
+            this.btnEliminarTodo.Text = "ELIMINAR TODO";
+            this.btnEliminarTodo.UseVisualStyleBackColor = true;
+            this.btnEliminarTodo.Click += new System.EventHandler(this.btnEliminarTodo_Click);
+            // 
             // frmEliminarTareas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 282);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1222, 272);
+            this.Controls.Add(this.dgvTareas);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEliminarTareas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar Tareas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmEliminarTareas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTareas;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtIdTarea;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnEliminarTodo;
     }
 }
