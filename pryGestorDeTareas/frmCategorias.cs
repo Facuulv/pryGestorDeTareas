@@ -18,6 +18,7 @@ namespace pryGestorDeTareas
             InitializeComponent();
         }
         clsConexionBD ObjCategorias = new clsConexionBD();
+        String UsuarioActual = clsConexionBD.Sesion.UsuarioActual;
         private void frmCategorias_Load(object sender, EventArgs e)
         {
             ObjCategorias.ListarCategorias(dgvCategorias);
@@ -35,17 +36,24 @@ namespace pryGestorDeTareas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (txtCategoria.Text != "")
+            if (UsuarioActual == "admin")
             {
-                string categoria =  txtCategoria.Text;
-                ObjCategorias.AgregarCategoria(categoria);
-                txtCategoria.Text = "";
-                ObjCategorias.ListarCategorias(dgvCategorias);
+                if (txtCategoria.Text != "")
+                {
+                    string categoria = txtCategoria.Text;
+                    ObjCategorias.AgregarCategoria(categoria);
+                    txtCategoria.Text = "";
+                    ObjCategorias.ListarCategorias(dgvCategorias);
+                }
+                else
+                {
+                    MessageBox.Show("Debe rellenar el campo.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                MessageBox.Show("Debe rellenar el campo.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                MessageBox.Show("Solo el Administrador puede agregar una categoría.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }         
         }
 
         private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -61,25 +69,32 @@ namespace pryGestorDeTareas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (lblCategoria.Text != "")
+            if (UsuarioActual == "admin")
             {
-                string categoria = lblCategoria.Text;
-                DialogResult resultado = MessageBox.Show(
-                $"¿Seguro que quieres eliminar la categoría {categoria}?",
-                "Eliminar Categoría",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+                if (lblCategoria.Text != "")
+                {
+                    string categoria = lblCategoria.Text;
+                    DialogResult resultado = MessageBox.Show(
+                    $"¿Seguro que quieres eliminar la categoría {categoria}?",
+                    "Eliminar Categoría",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                if (resultado == DialogResult.Yes)
-                {
-                    ObjCategorias.EliminarCategoria(categoria);
-                    ObjCategorias.ListarCategorias(dgvCategorias);
-                }
-                else
-                {
-                    MessageBox.Show("La categoría no se ha eliminado", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ObjCategorias.EliminarCategoria(categoria);
+                        ObjCategorias.ListarCategorias(dgvCategorias);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La categoría no se ha eliminado", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Solo el Administrador puede eliminar una categoría.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
     }
 }

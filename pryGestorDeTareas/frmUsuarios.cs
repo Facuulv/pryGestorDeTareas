@@ -18,6 +18,7 @@ namespace pryGestorDeTareas
             InitializeComponent();
         }
         clsConexionBD ObjUsuarios = new clsConexionBD();
+        String UsuarioActual = clsConexionBD.Sesion.UsuarioActual;
         private int idUsuario = 0;
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
@@ -30,30 +31,38 @@ namespace pryGestorDeTareas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text != "" && txtContraseña.Text != "" && cmbCargo.Text != ""
-                && cmbEstado.Text != "" && dtFechaCreacion.Text != "")
-            {               
-                string nombre = txtNombre.Text;
-                if (!ObjUsuarios.VerificarUsuario(nombre))
-                {
-                    string contraseña = txtContraseña.Text;
-                    int cargo = Convert.ToInt32(cmbCargo.SelectedValue);
-                    int estado = Convert.ToInt32(cmbEstado.SelectedValue);
-                    DateTime fechaCreacion = dtFechaCreacion.Value.Date;
-
-                    ObjUsuarios.AgregarUsuario(nombre, contraseña, fechaCreacion, cargo, estado);
-                    Limpiar();
-                    ObjUsuarios.CargarUsuarios(dgvUsuarios);
-                }else
-                {
-                    MessageBox.Show($"El usuario {nombre} ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Limpiar();
-                }               
-            }
-            else
+            if (UsuarioActual == "admin")
             {
-                MessageBox.Show("Error, no se pudo agregar al usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (txtNombre.Text != "" && txtContraseña.Text != "" && cmbCargo.Text != ""
+                && cmbEstado.Text != "" && dtFechaCreacion.Text != "")
+                {
+                    string nombre = txtNombre.Text;
+                    if (!ObjUsuarios.VerificarUsuario(nombre))
+                    {
+                        string contraseña = txtContraseña.Text;
+                        int cargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                        int estado = Convert.ToInt32(cmbEstado.SelectedValue);
+                        DateTime fechaCreacion = dtFechaCreacion.Value.Date;
+
+                        ObjUsuarios.AgregarUsuario(nombre, contraseña, fechaCreacion, cargo, estado);
+                        Limpiar();
+                        ObjUsuarios.CargarUsuarios(dgvUsuarios);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El usuario {nombre} ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error, no se pudo agregar al usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }else
+            {
+                MessageBox.Show("Solo tiene permisos para agregar el Administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         private void Limpiar()
         {
@@ -89,41 +98,55 @@ namespace pryGestorDeTareas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show(
-                "¿Seguro que quieres eliminar al usuario?",
-                "Eliminar Usuario",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            if (UsuarioActual == "admin")
+            {
+                DialogResult resultado = MessageBox.Show(
+            "¿Seguro que quieres eliminar al usuario?",
+            "Eliminar Usuario",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
 
-            if (resultado == DialogResult.Yes)
+                if (resultado == DialogResult.Yes)
+                {
+                    ObjUsuarios.EliminarUsuario(idUsuario);
+                    ObjUsuarios.CargarUsuarios(dgvUsuarios);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha eliminado el usuario.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }else
             {
-                ObjUsuarios.EliminarUsuario(idUsuario);
-                ObjUsuarios.CargarUsuarios(dgvUsuarios);
+                MessageBox.Show("Solo tiene permisos para eliminar el Administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                MessageBox.Show("No se ha eliminado el usuario.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text != "" && txtContraseña.Text != "" && cmbCargo.Text != ""
+            if (UsuarioActual == "admin")
+            {
+                if (txtNombre.Text != "" && txtContraseña.Text != "" && cmbCargo.Text != ""
                 && cmbEstado.Text != "" && dtFechaCreacion.Text != "")
-            {
-                string nombre = txtNombre.Text;
-                string contraseña = txtContraseña.Text;
-                int cargo = Convert.ToInt32(cmbCargo.SelectedValue);
-                int estado = Convert.ToInt32(cmbEstado.SelectedValue);
-                DateTime fechaCreacion = dtFechaCreacion.Value.Date;
+                {
+                    string nombre = txtNombre.Text;
+                    string contraseña = txtContraseña.Text;
+                    int cargo = Convert.ToInt32(cmbCargo.SelectedValue);
+                    int estado = Convert.ToInt32(cmbEstado.SelectedValue);
+                    DateTime fechaCreacion = dtFechaCreacion.Value.Date;
 
-                ObjUsuarios.ModificarUsuario(nombre, contraseña, fechaCreacion, cargo, estado, idUsuario);
+                    ObjUsuarios.ModificarUsuario(nombre, contraseña, fechaCreacion, cargo, estado, idUsuario);
 
-            }
-            else
+                }
+                else
+                {
+                    MessageBox.Show("Error al modificar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }else
             {
-                MessageBox.Show("Error al modificar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Solo tiene permisos para modificar el Administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
