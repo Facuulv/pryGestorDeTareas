@@ -31,29 +31,15 @@ namespace pryGestorDeTareas
 
             if (ObjBienvenida.ValidarUsuario(usuario, contraseña))
             {
-                MessageBox.Show("Usuario validado correctamente");
+                MessageBox.Show("Usuario validado correctamente", "Ingreso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmVentanaPrincipal principal = new frmVentanaPrincipal();
                 principal.ShowDialog();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos");
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
-        }
-
-        private void btnMostrarOcultar_Click(object sender, EventArgs e)
-        {
-            if (contraseñaVisible)
-            {
-                txtContraseña.PasswordChar = '*';
-            }
-            else
-            {
-                // muestra la pass
-                txtContraseña.PasswordChar = '\0'; 
-            }
-            contraseñaVisible = !contraseñaVisible;
         }
         private void Controles()
         {
@@ -61,12 +47,10 @@ namespace pryGestorDeTareas
                 !string.IsNullOrWhiteSpace(txtContraseña.Text))
             {
                 btnIngresar.Enabled = true;
-                btnMostrarOcultar.Enabled = true;
             }
             else
             {
                 btnIngresar.Enabled = false;
-                btnMostrarOcultar.Enabled = false;
             }
         }
 
@@ -78,6 +62,26 @@ namespace pryGestorDeTareas
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
             Controles();
+        }
+
+        private void chMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (contraseñaVisible)
+            {
+                txtContraseña.PasswordChar = '*';
+            }
+            else
+            {
+                // muestra la pass
+                txtContraseña.PasswordChar = '\0';
+            }
+            contraseñaVisible = !contraseñaVisible;
+        }
+
+        private void lklRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRegistro frmRegistro = new frmRegistro();
+            frmRegistro.ShowDialog();
         }
     }
 }

@@ -113,6 +113,16 @@ namespace pryGestorDeTareas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checklist__1_ {
+            get {
+                object obj = ResourceManager.GetObject("checklist (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24", resourceCulture);
@@ -286,6 +296,16 @@ namespace pryGestorDeTareas.Properties {
         internal static System.Drawing.Bitmap search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap to_do_list {
+            get {
+                object obj = ResourceManager.GetObject("to-do-list", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
